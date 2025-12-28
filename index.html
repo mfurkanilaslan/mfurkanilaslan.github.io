@@ -1,101 +1,122 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Personal homepage, CV and portfolio." />
-  <title>m.furkanilaslan — CV & Portfolio</title>
+  <meta name="description" content="Muhammet Furkan Ilaslan — CV & Research Portfolio" />
+  <title>M. Furkan Ilaslan — CV & Portfolio</title>
 
+  <!-- Minimal, fast, GitHub Pages friendly (no build tools) -->
   <style>
     :root{
-      --bg:#0b0f14;
-      --panel:#0f1620;
-      --text:#e6edf3;
-      --muted:#9aa6b2;
-      --line:#1f2a37;
-      --accent:#7dd3fc;
-      --chip:#132033;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --bg:#071426;
+      --panel:#0a1d36;
+      --panel2:#08192f;
+      --text:#eaf2ff;
+      --muted:#a9bfdc;
+      --line:rgba(160,200,255,.18);
+      --blue:#60a5fa;
+      --blue2:#22d3ee;
+      --chip:rgba(96,165,250,.12);
+      --shadow: 0 18px 55px rgba(0,0,0,.35);
       --radius: 18px;
-      --max: 1080px;
+      --max: 1120px;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
     [data-theme="light"]{
-      --bg:#f7fafc;
+      --bg:#f6fbff;
       --panel:#ffffff;
-      --text:#0b1220;
-      --muted:#4b5563;
-      --line:#e5e7eb;
-      --accent:#2563eb;
-      --chip:#eef2ff;
-      --shadow: 0 12px 28px rgba(2,6,23,.10);
+      --panel2:#f3f7ff;
+      --text:#071426;
+      --muted:#425a7a;
+      --line:rgba(7,20,38,.12);
+      --blue:#2563eb;
+      --blue2:#0891b2;
+      --chip:rgba(37,99,235,.10);
+      --shadow: 0 18px 55px rgba(2,6,23,.10);
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family:var(--sans);
-      background: radial-gradient(1100px 800px at 20% 0%, rgba(125,211,252,.12), transparent 55%),
-                  radial-gradient(1100px 800px at 80% 0%, rgba(99,102,241,.10), transparent 55%),
-                  var(--bg);
       color:var(--text);
+      background:
+        radial-gradient(900px 600px at 18% -10%, rgba(96,165,250,.22), transparent 55%),
+        radial-gradient(900px 600px at 85% 0%, rgba(34,211,238,.18), transparent 55%),
+        radial-gradient(1100px 700px at 40% 110%, rgba(99,102,241,.10), transparent 60%),
+        var(--bg);
     }
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 88px}
     header{
       position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(140%) blur(10px);
+      backdrop-filter:saturate(150%) blur(10px);
       background: color-mix(in srgb, var(--bg) 78%, transparent);
       border-bottom:1px solid var(--line);
     }
     .nav{
       max-width:var(--max); margin:0 auto;
-      padding:14px 18px; display:flex; gap:14px; align-items:center; justify-content:space-between;
+      padding:12px 16px;
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
     }
-    .brand{display:flex; gap:10px; align-items:center; text-decoration:none}
-    .avatar{
-      width:36px;height:36px;border-radius:12px;
-      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 80%, #fff 0%), #7c3aed);
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      min-width:200px;
+    }
+    .mark{
+      width:38px;height:38px;border-radius:14px;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 85%, #fff 0%), color-mix(in srgb, var(--blue2) 75%, #fff 0%));
       box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.10);
     }
-    .brand b{letter-spacing:.2px}
-    .navlinks{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .brand .t1{font-weight:800; letter-spacing:.2px}
+    .brand .t2{font-size:12px; color:var(--muted); margin-top:2px}
+    .navlinks{display:flex; gap:6px; flex-wrap:wrap; align-items:center; justify-content:flex-end}
     .navlinks a{
-      text-decoration:none; font-size:14px;
+      text-decoration:none; font-size:13px;
       padding:8px 10px; border-radius:12px;
       border:1px solid transparent;
       color:var(--muted);
     }
-    .navlinks a:hover{border-color:var(--line); color:var(--text); background: color-mix(in srgb, var(--panel) 75%, transparent);}
+    .navlinks a:hover{
+      border-color:var(--line);
+      color:var(--text);
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+    }
     .btn{
       border:1px solid var(--line);
-      background: var(--panel);
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
       color:var(--text);
       padding:8px 10px;
       border-radius:12px;
       cursor:pointer;
-      font-size:14px;
+      font-size:13px;
     }
     .btn:hover{transform:translateY(-1px)}
-    .grid{
-      display:grid;
-      grid-template-columns: 1.4fr .9fr;
-      gap:18px;
+    .hero{
       margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
     }
-    @media (max-width: 980px){
-      .grid{grid-template-columns:1fr}
-    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
     .card{
-      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      background: color-mix(in srgb, var(--panel) 90%, transparent);
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding:18px;
     }
+    .card.soft{
+      background: color-mix(in srgb, var(--panel2) 88%, transparent);
+    }
     h1{margin:0 0 8px; font-size:34px; line-height:1.12}
-    .subtitle{color:var(--muted); font-size:16px; line-height:1.6}
+    .sub{color:var(--muted); font-size:15px; line-height:1.65}
     .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
     .pill{
       font-family:var(--mono);
@@ -103,17 +124,59 @@
       padding:7px 10px;
       border-radius:999px;
       background: var(--chip);
-      border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
-      color: color-mix(in srgb, var(--text) 85%, var(--accent));
+      border: 1px solid color-mix(in srgb, var(--blue) 28%, var(--line));
+      color: color-mix(in srgb, var(--text) 82%, var(--blue));
+      white-space:nowrap;
     }
+    .headshot{
+      height:100%;
+      display:flex; flex-direction:column;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .photo{
+      border-radius: 18px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      background: color-mix(in srgb, var(--panel2) 90%, transparent);
+      min-height: 260px;
+      position:relative;
+    }
+    .photo img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(1.05) contrast(1.02);
+    }
+    .glow{
+      position:absolute; inset:auto -20% -40% -20%;
+      height:60%;
+      background: radial-gradient(circle at 50% 0%, rgba(96,165,250,.35), transparent 60%);
+      pointer-events:none;
+    }
+    .kv{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 520px){ .kv{grid-template-columns:1fr} }
+    .kv .box{
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 86%, transparent);
+    }
+    .kv .k{font-size:12px; color:var(--muted)}
+    .kv .v{font-size:14px; font-weight:700; margin-top:4px}
     .section{margin-top:18px}
     .section h2{
       margin:0 0 10px;
-      font-size:16px; letter-spacing:.2px;
-      color: color-mix(in srgb, var(--text) 90%, var(--muted));
+      font-size:14px;
+      letter-spacing:.22px;
+      color: color-mix(in srgb, var(--text) 88%, var(--muted));
+      text-transform:uppercase;
     }
-    .two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width: 720px){.two{grid-template-columns:1fr}}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 900px){ .grid2{grid-template-columns:1fr} }
     .list{display:flex; flex-direction:column; gap:10px}
     .item{
       padding:12px;
@@ -123,15 +186,7 @@
     }
     .itemtop{display:flex; gap:10px; align-items:flex-start; justify-content:space-between}
     .item h3{margin:0; font-size:15px}
-    .meta{color:var(--muted); font-size:13px; margin-top:4px; line-height:1.35}
-    .links{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
-    .links a{
-      font-size:13px;
-      color: color-mix(in srgb, var(--accent) 75%, var(--text));
-      text-decoration:none;
-      border-bottom:1px dashed color-mix(in srgb, var(--accent) 45%, transparent);
-    }
-    .links a:hover{opacity:.85}
+    .meta{color:var(--muted); font-size:13px; margin-top:4px; line-height:1.4}
     .chips{display:flex; gap:7px; flex-wrap:wrap; margin-top:8px}
     .chip{
       font-size:12px;
@@ -139,13 +194,22 @@
       border-radius:999px;
       border:1px solid var(--line);
       color: var(--muted);
-      background: color-mix(in srgb, var(--panel) 70%, transparent);
+      background: color-mix(in srgb, var(--panel2) 70%, transparent);
     }
+    .links{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+    .links a{
+      font-size:13px;
+      color: color-mix(in srgb, var(--blue) 80%, var(--text));
+      text-decoration:none;
+      border-bottom:1px dashed color-mix(in srgb, var(--blue) 55%, transparent);
+    }
+    .links a:hover{opacity:.9}
     .controls{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:8px 0 12px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin:10px 0 12px;
     }
     input[type="search"], select{
-      background: var(--panel);
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
       color: var(--text);
       border:1px solid var(--line);
       border-radius:12px;
@@ -154,10 +218,591 @@
       outline:none;
     }
     input[type="search"]{flex:1; min-width:220px}
-    .kpi{
-      display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-top:14px;
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
     }
-    @media (max-width: 720px){.kpi{grid-template-columns:1fr}}
-    .kpi .box{padding:12px; border-radius:16px; border:1px solid var(--line); background: color-mix(in srgb, var(--panel) 86%, transparent);}
-    .kpi .num{font-size:18px; font-weight:700}
-    .kpi .lbl{font-size:12px; color
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .sp{height:1px; background:var(--line); margin:14px 0}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      background: linear-gradient(135deg, rgba(96,165,250,.18), rgba(34,211,238,.12));
+      border: 1px solid color-mix(in srgb, var(--blue) 28%, var(--line));
+      text-decoration:none;
+      font-size:13px;
+    }
+    .badge b{font-weight:800}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="#top" aria-label="Home">
+      <div class="mark" aria-hidden="true"></div>
+      <div>
+        <div class="t1" id="navName">M. Furkan Ilaslan</div>
+        <div class="t2" id="navTag">CV • Research • Portfolio</div>
+      </div>
+    </a>
+
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#papers">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#service">Service</a>
+      <a href="#skills">Skills</a>
+      <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">Toggle theme</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <div class="card">
+      <h1 id="name">Muhammet Furkan Ilaslan</h1>
+      <div class="sub" id="headline"></div>
+
+      <div class="pillrow" id="pills"></div>
+
+      <div class="sp"></div>
+
+      <div class="row" id="contactRow"></div>
+
+      <div class="section">
+        <h2>Quick Summary</h2>
+        <div class="sub" id="summary"></div>
+      </div>
+
+      <div class="section">
+        <h2>Highlights</h2>
+        <div class="kv" id="kpi"></div>
+      </div>
+    </div>
+
+    <div class="card soft headshot">
+      <div class="photo" aria-label="Profile photo">
+        <img src="furkan-photo.jpg" alt="Muhammet Furkan Ilaslan" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;padding:16px;color:var(--muted);&quot;>Place <b>furkan-photo.jpg</b> in the repo root.</div>';">
+        <div class="glow" aria-hidden="true"></div>
+      </div>
+
+      <a class="badge" href="FurkanCV.pdf" target="_blank" rel="noopener">
+        <span aria-hidden="true">📄</span> <b>Download CV</b> <span class="muted">(PDF)</span>
+      </a>
+
+      <div class="muted" style="font-size:12px; line-height:1.55;">
+        Tip: keep <span style="font-family:var(--mono)">index.html</span>, <span style="font-family:var(--mono)">FurkanCV.pdf</span>, and <span style="font-family:var(--mono)">furkan-photo.jpg</span> in the repo root for GitHub Pages.
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About</h2>
+    <div class="card">
+      <div class="sub" id="aboutText"></div>
+    </div>
+  </section>
+
+  <section class="section" id="papers">
+    <h2>Publications</h2>
+    <div class="card">
+      <div class="controls">
+        <input id="paperSearch" type="search" placeholder="Search papers (title / venue / year)..." />
+        <select id="paperFilter">
+          <option value="all">All</option>
+          <option value="journal">Journal</option>
+          <option value="conference">Conference/Workshop</option>
+          <option value="preprint">Preprint/Under Review</option>
+        </select>
+        <select id="paperSort">
+          <option value="year_desc">Sort: Year (new → old)</option>
+          <option value="year_asc">Sort: Year (old → new)</option>
+          <option value="title_asc">Sort: Title (A → Z)</option>
+        </select>
+      </div>
+      <div class="list" id="paperList"></div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <h2>Selected Projects</h2>
+    <div class="card">
+      <div class="controls">
+        <input id="projSearch" type="search" placeholder="Search projects..." />
+        <select id="projSort">
+          <option value="recent">Sort: Recent first</option>
+          <option value="title">Sort: Title</option>
+        </select>
+      </div>
+      <div class="list" id="projectList"></div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <h2>Work & Research Experience</h2>
+    <div class="card">
+      <div class="list" id="expList"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Education</h2>
+    <div class="card">
+      <div class="list" id="eduList"></div>
+    </div>
+  </section>
+
+  <section class="section" id="service">
+    <h2>Leadership, Service & Reviewing</h2>
+    <div class="grid2">
+      <div class="card">
+        <h2 style="margin-top:0;">Leadership / Service</h2>
+        <div class="list" id="serviceList"></div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0;">Reviewer</h2>
+        <div class="chips" id="reviewerChips"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <div class="grid2">
+      <div class="card">
+        <h2 style="margin-top:0;">Technical</h2>
+        <div class="chips" id="techChips"></div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0;">Soft Skills & Hobbies</h2>
+        <div class="chips" id="softChips"></div>
+        <div class="sp"></div>
+        <div class="chips" id="hobbyChips"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Awards & Certifications</h2>
+    <div class="grid2">
+      <div class="card">
+        <h2 style="margin-top:0;">Awards / Achievements</h2>
+        <div class="list" id="awardList"></div>
+      </div>
+      <div class="card">
+        <h2 style="margin-top:0;">Certifications</h2>
+        <div class="list" id="certList"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> <span id="footName"></span> · Built for GitHub Pages · Blue theme · Single-file site
+  </footer>
+</main>
+
+<script>
+  // =========================
+  // Data (from your attached CV)
+  // Edit links anytime; the UI updates automatically.
+  // =========================
+  const SITE_DATA = {
+    name: "Muhammet Furkan Ilaslan",
+    shortName: "M. Furkan Ilaslan",
+    headline:
+      "PhD Candidate (NUS-ECE) · Show Lab – NUS & I2R – A*STAR · Human-Centered AI for Procedural Learning",
+    summary:
+      "Researcher specializing in human-centered AI, multimodal procedural learning, and retrieval-augmented mistake detection from instructional videos. I bridge computer vision + LLM reasoning with human signals (e.g., gaze) to support real-time, feedback-driven learning systems.",
+    pills: [
+      "Human-Centered AI",
+      "Multimodal Learning",
+      "Procedural Planning",
+      "RAG for Mistake Detection",
+      "Computer Vision",
+      "LLMs"
+    ],
+    contacts: [
+      { label: "Email", href: "mailto:m.furkanilaslan@gmail.com" },
+      { label: "GitHub", href: "https://github.com/mfurkanilaslan" },
+      { label: "Google Scholar", href: "https://scholar.google.com/citations?user=pN6LVwwAAAAJ" },
+      { label: "CV (PDF)", href: "FurkanCV.pdf" }
+    ],
+    highlights: [
+      { k: "Framework", v: "PLUFFIN" },
+      { k: "Focus", v: "Procedural learning & assistance" },
+      { k: "Methods", v: "Multimodal + LLMs + Retrieval" }
+    ],
+    about:
+      "I work on human-centered procedural knowledge learning from instructional videos, building systems that structure procedural plans, model human signals, and deliver mistake-aware feedback. My recent work includes PLUFFIN, VG-TVP, VG-MPP, GazeVQA/AssistGaze, and RAMMP.",
+    experience: [
+      {
+        title: "PhD Candidate — Show Lab-NUS & I2R-A*STAR (Dr. Mike Zheng Shou & Dr. Qianli Xu)",
+        where: "Singapore",
+        when: "Aug 2021 – Present",
+        bullets: [
+          "Developed PLUFFIN: a holistic framework for multimodal procedural plans, collaborative modeling, and retrieval-augmented mistake detection.",
+          "Invented VG-TVP and VG-MPP for visually grounded procedural planning from curated + raw instructional videos.",
+          "Collected GazeVQA and developed AssistGaze integrating eye-gaze with multimodal features for collaboration-centric question answering.",
+          "Created RAMMP for real-time semantic mistake detection and context-aware feedback generation."
+        ],
+        tags: ["PLUFFIN", "VG-TVP", "VG-MPP", "GazeVQA", "AssistGaze", "RAMMP"]
+      },
+      {
+        title: "Visiting Researcher — MaVi Research Group (Prof. Dima Damen & Dr. Michael Wray)",
+        where: "Bristol, UK",
+        when: "Jun 2024 – Aug 2024",
+        bullets: [
+          "Investigated user learning patterns and feedback strategies for personalized learning.",
+          "Developed models for real-time mistake detection and feedback generation."
+        ],
+        tags: ["User learning", "Feedback", "Mistake detection"]
+      },
+      {
+        title: "Teaching Assistant — Electrical Machines and Drives Lab (Prof. Sanjib K. Panda)",
+        where: "Singapore",
+        when: "Jan 2022 – May 2024",
+        bullets: [
+          "Led hardware experiments and simulations in electric drives and power electronics.",
+          "Delivered lectures for EE4502 and EE4503."
+        ],
+        tags: ["Teaching", "Power electronics", "Motion control"]
+      },
+      {
+        title: "Researcher — TÜBİTAK (Prof. Dr. Taylan Yetkin)",
+        where: "Türkiye",
+        when: "Mar 2020 – Mar 2021",
+        bullets: [
+          "Worked on TÜBİTAK-1001 project (119F133) on interaction depth estimation of 511 keV gammas in inorganic crystals.",
+          "Designed custom PCB circuits and optimized software using Zedboard Zynq-7000."
+        ],
+        tags: ["FPGA", "PCB", "Zynq-7000"]
+      },
+      {
+        title: "Research Assistant — Cognitive Systems Lab, Istanbul Technical University (Prof. Tahir Ç. Akıncı)",
+        where: "Türkiye",
+        when: "Feb 2018 – Feb 2020",
+        bullets: [
+          "FPGA-based reprogrammable board design; EEG, information theory, and signal processing."
+        ],
+        tags: ["FPGA", "EEG", "Signal processing"]
+      }
+    ],
+    education: [
+      { title: "PhD in Electrical & Computer Engineering, National University of Singapore (NUS)", when: "2021 – Present", meta: "GPA: 4.20/5.0 · Singapore" },
+      { title: "MSc in Electrical Engineering, Istanbul Technical University (ITU)", when: "2018 – 2020", meta: "GPA: 3.44/4.0 · Istanbul, Türkiye" },
+      { title: "BSc in Electrical & Electronics Engineering, Istanbul Aydın University (IAU)", when: "2012 – 2017", meta: "GPA: 3.50/4.0 · Istanbul, Türkiye" },
+      { title: "BBA in Business Administration, Anadolu University", when: "2013 – 2018", meta: "Eskişehir, Türkiye" }
+    ],
+    projects: [
+      {
+        title: "RAMMP — Retrieval-Augmented Multimodal Mistake Predictor",
+        when: "Mar 2025 – Present",
+        desc: "Real-time procedural mistake detection and adaptive feedback generation using multimodal embeddings + LLM reasoning.",
+        tags: ["RAG", "Mistake detection", "Multimodal", "LLMs"],
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        title: "VG-MPP — Visually-Grounded Multimodal Procedural Planning",
+        when: "Jan 2025 – Nov 2025",
+        desc: "Scalable pipeline for structuring procedural knowledge from uncurated videos via video retrieval, multimodal alignment, and LLM prompting.",
+        tags: ["Procedural planning", "YouTube", "Alignment", "LLMs"],
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        title: "VG-TVP — Visually-Grounded Text-Video Prompting",
+        when: "Oct 2023 – Nov 2024",
+        desc: "Bridge framework between T2V/V2T diffusion and LLMs for generating accurate procedural plans from curated instructional videos.",
+        tags: ["T2V", "V2T", "Diffusion", "LLMs"],
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        title: "GazeVQA & AssistGaze",
+        when: "Sep 2022 – Dec 2023",
+        desc: "Industrial multiview gaze-enhanced VideoQA dataset + multimodal assistant to support collaboration-centric task understanding.",
+        tags: ["Gaze", "VideoQA", "Dataset", "Multimodal"],
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        title: "FPGA-Based Re-Programmable Circuits (MSc Thesis)",
+        when: "Jan 2019 – Jun 2020",
+        desc: "Low-cost, high-performance customizable training kit with a sandwich board design.",
+        tags: ["FPGA", "Hardware", "Design"],
+        links: [{ label: "Publication", href: "#" }]
+      }
+    ],
+    publications: [
+      {
+        type: "preprint",
+        year: 2025,
+        title: "Retrieval-augmented mistake detection in procedural planning via multimodal action-object reasoning",
+        venue: "Under review",
+        authors: "Ilaslan, M. F., et al.",
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        type: "conference",
+        year: 2025,
+        title: "VG-MPP: Visually Grounded Multimodal Procedural Planning from Unstructured Instructional Videos",
+        venue: "HCM Workshop — AAAI 2026 (AAAI Press)",
+        authors: "Ilaslan, M. F., et al.",
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        type: "conference",
+        year: 2025,
+        title: "VG-TVP: Multimodal Procedural Planning via Visually Grounded Text-Video Prompting",
+        venue: "AAAI 2025, pp. 3886–3894",
+        authors: "Ilaslan, M. F., et al.",
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        type: "conference",
+        year: 2023,
+        title: "GazeVQA: A Video Question Answering Dataset for Multiview Eye-Gaze Task-Oriented Collaborations",
+        venue: "EMNLP 2023, pp. 10462–10479",
+        authors: "Ilaslan, M. F., et al.",
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        type: "journal",
+        year: 2020,
+        title: "FPGA-Based Reprogrammable Main Circuit Board and Auxiliary Circuit Board Design",
+        venue: "Journal of Engineering Science and Technology, 15(6), 3955–3970",
+        authors: "Ilaslan, M. F., et al.",
+        links: [{ label: "Paper", href: "#" }]
+      },
+      {
+        type: "journal",
+        year: 2018,
+        title: "The Multiresolution Wavelet Analysis of the Brain Signals of Epilepsy Patients",
+        venue: "The Journal of Cognitive Systems, 3(2), 30–33",
+        authors: "Ilaslan, M. F.",
+        links: [{ label: "Paper", href: "#" }]
+      }
+    ],
+    service: [
+      {
+        title: "President — NUS Graduate Student Society (39th ExCo)",
+        when: "Aug 2024 – Aug 2025",
+        bullets: ["Organized 15+ events; ≈40% increase in members (+2600).", "Liaison with university administrators and departments."]
+      },
+      {
+        title: "General Secretary — NUS Graduate Student Society (38th ExCo)",
+        when: "Aug 2023 – Aug 2024",
+        bullets: ["Core coordination role; supported graduate community growth (+1800 members)."]
+      },
+      {
+        title: "Vice President (Strategy Team) — Istanbul Metropolitan Municipality Youth Assembly",
+        when: "Oct 2014 – Feb 2019",
+        bullets: ["Led youth-oriented strategy planning and community events."]
+      },
+      {
+        title: "Volunteer Tour Guide — Dolmabahce Palace (Directorate of National Palaces)",
+        when: "Jul 2013 – Jun 2016",
+        bullets: ["Led groups of 50+ visitors; delivered historical and architectural guidance."]
+      }
+    ],
+    reviewer: ["ICCV", "NeurIPS", "ACMMM", "AAAI", "EMNLP"],
+    skills: {
+      technical: ["Python", "PyTorch", "TensorFlow", "OpenCV", "MATLAB", "C", "Git", "Linux", "Arduino", "Xilinx", "VHDL", "Easy PC", "Altium", "LaTeX"],
+      soft: ["Leadership", "Communication", "Problem-Solving", "Time Management", "Documentation", "On-site Coordination"],
+      hobbies: ["Table Tennis", "Archery", "Gastronomy", "Travelling"]
+    },
+    awards: [
+      "2024 — Second Rank at Best-Poster Award, SINGA, A*GA (A*STAR), Singapore",
+      "2021–2025 — SINGA Scholarship, A*STAR & NUS, Singapore",
+      "2020–2021 — Project Scholarship, TÜBİTAK 119F133, Türkiye",
+      "2018–2020 — Project Scholarship, ITU Scientific Research Projects, Türkiye",
+      "2017 — Erasmus Internship Scholarship (IAU – ALTU Technology), Bristol, UK",
+      "2017 — Merit-based Scholarship & 2nd rank (High Honour Student), IAU, Türkiye",
+      "2006–2008 — 1st Rank, Table Tennis Tournament, Bağcılar Municipality, Türkiye"
+    ],
+    certifications: [
+      "2022 — Introduction to Statistics, Stanford University (Coursera)",
+      "2018 — System Engineering Program, HAVELSAN, Türkiye",
+      "2017 — Engineering Economics, TQM, and Multi-Criteria Decision Making, Istanbul Aydın University"
+    ]
+  };
+
+  // =========================
+  // Rendering helpers
+  // =========================
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => (s ?? "").toString()
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+
+  function makeItem({title, where, when, bullets=[], tags=[], links=[]}) {
+    const linksHtml = (links||[]).filter(x=>x.href && x.href !== "#").map(x =>
+      `<a href="${esc(x.href)}" target="_blank" rel="noopener">${esc(x.label)}</a>`
+    ).join("");
+    const tagsHtml = (tags||[]).map(t => `<span class="chip">${esc(t)}</span>`).join("");
+    const bulletHtml = (bullets||[]).map(b => `<div class="meta">• ${esc(b)}</div>`).join("");
+
+    return `
+      <div class="item">
+        <div class="itemtop">
+          <div>
+            <h3>${esc(title)}</h3>
+            <div class="meta">${[where, when].filter(Boolean).map(esc).join(" · ")}</div>
+          </div>
+        </div>
+        ${bulletHtml ? `<div style="margin-top:8px;">${bulletHtml}</div>` : ""}
+        ${tagsHtml ? `<div class="chips">${tagsHtml}</div>` : ""}
+        ${linksHtml ? `<div class="links">${linksHtml}</div>` : ""}
+      </div>
+    `;
+  }
+
+  function render() {
+    // Header / hero text
+    $("navName").textContent = SITE_DATA.shortName;
+    $("name").textContent = SITE_DATA.name;
+    $("headline").textContent = SITE_DATA.headline;
+    $("summary").textContent = SITE_DATA.summary;
+    $("aboutText").textContent = SITE_DATA.about;
+
+    // Pills
+    $("pills").innerHTML = SITE_DATA.pills.map(p => `<span class="pill">${esc(p)}</span>`).join("");
+
+    // Contacts
+    $("contactRow").innerHTML = SITE_DATA.contacts.map(c =>
+      `<a class="badge" href="${esc(c.href)}" ${c.href.startsWith("mailto:") ? "" : 'target="_blank" rel="noopener"'}>
+        <span aria-hidden="true">🔗</span> <b>${esc(c.label)}</b>
+      </a>`
+    ).join("");
+
+    // KPI
+    $("kpi").innerHTML = SITE_DATA.highlights.map(x =>
+      `<div class="box"><div class="k">${esc(x.k)}</div><div class="v">${esc(x.v)}</div></div>`
+    ).join("");
+
+    // Experience
+    $("expList").innerHTML = SITE_DATA.experience.map(e => makeItem(e)).join("");
+
+    // Education
+    $("eduList").innerHTML = SITE_DATA.education.map(e => makeItem({
+      title: e.title, where: e.meta, when: e.when, bullets: []
+    })).join("");
+
+    // Service
+    $("serviceList").innerHTML = SITE_DATA.service.map(s => makeItem({
+      title: s.title, where: "", when: s.when, bullets: s.bullets
+    })).join("");
+
+    // Reviewer chips
+    $("reviewerChips").innerHTML = SITE_DATA.reviewer.map(r => `<span class="chip">${esc(r)}</span>`).join("");
+
+    // Skill chips
+    $("techChips").innerHTML = SITE_DATA.skills.technical.map(x => `<span class="chip">${esc(x)}</span>`).join("");
+    $("softChips").innerHTML = SITE_DATA.skills.soft.map(x => `<span class="chip">${esc(x)}</span>`).join("");
+    $("hobbyChips").innerHTML = SITE_DATA.skills.hobbies.map(x => `<span class="chip">${esc(x)}</span>`).join("");
+
+    // Awards & certs
+    $("awardList").innerHTML = SITE_DATA.awards.map(a => makeItem({title: a, where:"", when:""})).join("");
+    $("certList").innerHTML = SITE_DATA.certifications.map(c => makeItem({title: c, where:"", when:""})).join("");
+
+    // Footer
+    $("year").textContent = new Date().getFullYear();
+    $("footName").textContent = SITE_DATA.shortName;
+
+    // Initial render lists with filters
+    renderPapers();
+    renderProjects();
+  }
+
+  function renderPapers() {
+    const q = ($("paperSearch").value || "").toLowerCase().trim();
+    const type = $("paperFilter").value;
+    const sort = $("paperSort").value;
+
+    let items = [...SITE_DATA.publications];
+
+    if (type !== "all") items = items.filter(p => p.type === type);
+
+    if (q) {
+      items = items.filter(p =>
+        (p.title||"").toLowerCase().includes(q) ||
+        (p.venue||"").toLowerCase().includes(q) ||
+        String(p.year||"").includes(q)
+      );
+    }
+
+    items.sort((a,b) => {
+      if (sort === "year_desc") return (b.year||0) - (a.year||0);
+      if (sort === "year_asc") return (a.year||0) - (b.year||0);
+      if (sort === "title_asc") return (a.title||"").localeCompare(b.title||"");
+      return 0;
+    });
+
+    $("paperList").innerHTML = items.map(p => makeItem({
+      title: `${p.title} (${p.year})`,
+      where: p.venue,
+      when: p.authors,
+      tags: [p.type],
+      links: (p.links||[]).filter(x=>x.href && x.href !== "#")
+    })).join("");
+
+    if (!items.length) {
+      $("paperList").innerHTML = `<div class="muted">No matching publications.</div>`;
+    }
+  }
+
+  function renderProjects() {
+    const q = ($("projSearch").value || "").toLowerCase().trim();
+    const sort = $("projSort").value;
+
+    let items = [...SITE_DATA.projects];
+
+    if (q) {
+      items = items.filter(p =>
+        (p.title||"").toLowerCase().includes(q) ||
+        (p.desc||"").toLowerCase().includes(q) ||
+        (p.tags||[]).join(" ").toLowerCase().includes(q)
+      );
+    }
+
+    if (sort === "title") items.sort((a,b) => (a.title||"").localeCompare(b.title||""));
+
+    $("projectList").innerHTML = items.map(p => makeItem({
+      title: p.title,
+      where: p.desc,
+      when: p.when,
+      tags: p.tags || [],
+      links: (p.links||[]).filter(x=>x.href && x.href !== "#")
+    })).join("");
+
+    if (!items.length) {
+      $("projectList").innerHTML = `<div class="muted">No matching projects.</div>`;
+    }
+  }
+
+  // Theme toggle (remembers preference)
+  function initTheme() {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+    $("themeBtn").addEventListener("click", () => {
+      const cur = document.documentElement.getAttribute("data-theme") || "dark";
+      const nxt = cur === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", nxt);
+      localStorage.setItem("theme", nxt);
+    });
+  }
+
+  // Wire filters
+  function initControls() {
+    ["paperSearch","paperFilter","paperSort"].forEach(id => $(id).addEventListener("input", renderPapers));
+    ["projSearch","projSort"].forEach(id => $(id).addEventListener("input", renderProjects));
+  }
+
+  initTheme();
+  initControls();
+  render();
+</script>
+</body>
+</html>
