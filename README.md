@@ -1,6 +1,6 @@
-# Muhammet Furkan Ilaslan — Researcher
+# Muhammet Furkan Ilaslan — Human-Centered AI Researcher
 
-**PhD Candidate, Electrical & Computer Engineering**  
+** PhD Candidate, Electrical & Computer Engineering**  
 National University of Singapore (NUS) · A*STAR Institute for Infocomm Research (I²R)
 
 📍 Singapore · 📧 m.furkanilaslan@gmail.com 
