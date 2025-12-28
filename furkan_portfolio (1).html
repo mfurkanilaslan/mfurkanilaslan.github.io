@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammet Furkan Ilaslan - Researcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #e5e5e5;
+            background: #0a0a0a;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 25px;
+            padding: 18px 0;
+        }
+
+        .nav-icons a {
+            color: #999;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-icons a:hover {
+            color: #4a9eff;
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 45px;
+        }
+
+        .nav-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 23px 0;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4a9eff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #4a9eff;
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 70px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* About Page - Hero Style */
+        #about-page {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 6px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.35em;
+            opacity: 0.95;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            padding: 8px 18px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .about-description {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            line-height: 1.8;
+        }
+
+        .about-description p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        /* Content Pages */
+        .content-page {
+            background: #0a0a0a;
+            color: #e5e5e5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 50px;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: #4a9eff;
+            font-size: 1.1em;
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+
+        .section-intro {
+            font-size: 1.15em;
+            color: #aaa;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(26, 26, 26, 0.8);
+            margin-bottom: 35px;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #4a9eff, #7e22ce);
+            transition: height 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(74, 158, 255, 0.15);
+        }
+
+        .card:hover::before {
+            height: 100%;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.5em;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .card-date {
+            color: #888;
+            font-weight: 600;
+            font-size: 0.95em;
+            white-space: nowrap;
+            background: rgba(74, 158, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .card-subtitle {
+            color: #4a9eff;
+            font-weight: 600;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            font-size: 1.02em;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+            color: #bbb;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        li strong {
+            color: #4a9eff;
+            font-weight: 600;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #4a9eff;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(74, 158, 255, 0.15);
+        }
+
+        .skill-card h4 {
+            color: #4a9eff;
+            margin-bottom: 15px;
+            font-size: 1.25em;
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            color: #bbb;
+            line-height: 1.7;
+        }
+
+        /* Publications */
+        .pub-item {
+            background: rgba(26, 26, 26, 0.8);
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #4a9eff;
+            transition: all 0.3s ease;
+        }
+
+        .pub-item:hover {
+            transform: translateX(5px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 5px 30px rgba(74, 158, 255, 0.1);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.15em;
+            line-height: 1.5;
+        }
+
+        .pub-venue {
+            color: #4a9eff;
+            font-style: italic;
+            font-size: 1em;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .award-item {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 25px;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            transform: translateX(5px);
+            border-color: rgba(244, 162, 97, 0.3);
+            box-shadow: 0 5px 30px rgba(244, 162, 97, 0.1);
+        }
+
+        .award-year {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #f4a261;
+            text-align: center;
+        }
+
+        .award-details h4 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1.15em;
+        }
+
+        .award-details p {
+            color: #888;
+            font-size: 0.98em;
+            line-height: 1.6;
+        }
+
+        /* Education Timeline */
+        .education-timeline {
+            position: relative;
+            padding-left: 50px;
+            margin-top: 40px;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            background: linear-gradient(180deg, #4a9eff, #7e22ce);
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 30px;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -56px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #4a9eff;
+            border: 4px solid #0a0a0a;
+            box-shadow: 0 0 0 4px rgba(74, 158, 255, 0.2);
+        }
+
+        .degree {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .university {
+            color: #4a9eff;
+            font-weight: 600;
+            font-size: 1.15em;
+            margin-bottom: 8px;
+        }
+
+        .edu-meta {
+            color: #888;
+            margin-bottom: 12px;
+            font-size: 0.98em;
+        }
+
+        .edu-details {
+            color: #bbb;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: rgba(74, 158, 255, 0.08);
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 50px;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            line-height: 1.8;
+        }
+
+        .highlight h3 {
+            color: #4a9eff;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .highlight strong {
+            color: #4a9eff;
+        }
+
+        .highlight p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: rgba(20, 20, 20, 0.95);
+            color: #888;
+            text-align: center;
+            padding: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0 30px;
+            }
+
+            .container {
+                padding: 60px 30px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            .card-date {
+                align-self: flex-start;
+            }
+
+            .award-item {
+                grid-template-columns: 1fr;
+            }
+
+            .award-year {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-icons">
+                <a href="mailto:m.furkanilaslan@gmail.com" title="Email">✉</a>
+                <a href="https://scholar.google.com/citations?user=pN6LVwwAAAAJ" target="_blank" title="Google Scholar">🎓</a>
+                <a href="https://github.com/mfurkanilaslan" target="_blank" title="GitHub">💻</a>
+                <a href="https://www.linkedin.com/in/muhammet-furkan-ilaslan-1b698b93/" target="_blank" title="LinkedIn">🔗</a>
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link active" data-page="about">About</a>
+                <a href="#research" class="nav-link" data-page="research">Research</a>
+                <a href="#publications" class="nav-link" data-page="publications">Publications</a>
+                <a href="#projects" class="nav-link" data-page="projects">Projects</a>
+                <a href="#education" class="nav-link" data-page="education">Education</a>
+                <a href="#awards" class="nav-link" data-page="awards">Awards</a>
+                <a href="#service" class="nav-link" data-page="service">Service</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Page -->
+    <div id="about-page" class="page active">
+        <div class="hero-content">
+            <div class="profile-section">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234a9eff;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%237e22ce;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad)' width='220' height='220'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.35em' fill='white' font-size='80' font-family='Inter, sans-serif' font-weight='700'%3EMFI%3C/text%3E%3C/svg%3E" alt="Profile" class="profile-img">
+                <div class="profile-info">
+                    <h1>Muhammet Furkan Ilaslan</h1>
+                    <p class="tagline">PhD Candidate in Electrical and Computer Engineering<br>
+                    National University of Singapore · A*STAR Institute for Infocomm Research</p>
+                    <div class="contact-info">
+                        <a href="mailto:m.furkanilaslan@gmail.com">Email</a>
+                        <a href="https://scholar.google.com/citations?user=pN6LVwwAAAAJ" target="_blank">Google Scholar</a>
+                        <a href="https://github.com/mfurkanilaslan" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/muhammet-furkan-ilaslan-1b698b93/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-description">
+                <p>A researcher passionate about embedded systems and cognitive science, specializing in human-centered AI for improving human learning experience. Currently submitting his PhD thesis in computer vision applications at NUS-ECE (4th, QS University Ranking 2025) under the supervision of Dr. Mike Zheng Shou in collaboration with Dr. Qianli Xu at the Institute for Infocomm Research, A*STAR.</p>
+                
+                <p>His research interests include developing assistive AI models empowered by LLMs and multimodal feature modeling to improve human-in-the-loop applications in AI. With experience in embedded systems and cognitive science, he bridges embedded intelligence with human-AI interaction.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Research Page -->
+    <div id="research-page" class="page content-page">
+        <div class="container">
+            <h2>Research Experience</h2>
+            <p class="section-intro">Developing intelligent systems that enhance human learning experiences through computer vision, multimodal AI, and large language models.</p>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">PhD Candidate</div>
+                        <div class="card-subtitle">Show Lab-NUS & I2R-A*STAR</div>
+                        <p style="color: #888; margin-top: 8px;">Supervised by Dr. Mike Zheng Shou & Dr. Qianli Xu</p>
+                    </div>
+                    <div class="card-date">Aug 2021 - Present</div>
+                </div>
+                <p style="color: #888; margin-bottom: 15px;">Singapore</p>
+                <ul>
+                    <li><strong>PLUFFIN Framework:</strong> Developed a holistic computational framework structuring multimodal procedural plans (MPPs), human-AI collaborative modeling, and retrieval-augmented mistake detection to support real-time human-centered learning from instructional videos.</li>
+                    <li><strong>VG-TVP and VG-MPP Models:</strong> Invented models that process both curated and raw instructional videos into structured, visually-grounded procedural plans, significantly improving scalability and generalizability in MPP (up to 86% human preference rate).</li>
+                    <li><strong>GazeVQA & AssistGaze:</strong> Collected an industrial-based, gaze-enhanced Video Question Answering (VQA) dataset and developed a multimodal AI-Assistant model, pioneering the integration of eye-gaze and multimodal features (≈40% improvement).</li>
+                    <li><strong>RAMMP:</strong> Created a Retrieval-Augmented Multimodal Mistake Predictor for real-time semantic mistake detection and context-aware feedback generation (≈5% higher than SOTA).</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Visiting Researcher</div>
+                        <div class="card-subtitle">MaVi Research Group, University of Bristol</div>
+                        <p style="color: #888; margin-top: 8px;">Prof. Dima Damen & Dr. Michael Wray</p>
+                    </div>
+                    <div class="card-date">Jun 2024 - Aug 2024</div>
+                </div>
+                <p style="color: #888; margin-bottom: 15px;">Bristol, United Kingdom</p>
+                <ul>
+                    <li>Investigating user learning patterns to design feedback strategies for enhancing personalized learning experiences.</li>
+                    <li>Developing an AI model that analyzes users' execution performance in real-time for detecting mistakes and feedback generation.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Teaching Assistant</div>
+                        <div class="card-subtitle">Electrical Machines and Drives Lab, NUS</div>
+                        <p style="color: #888; margin-top: 8px;">Prof. Sanjib K. Panda</p>
+                    </div>
+                    <div class="card-date">Jan 2022 - May 2024</div>
+                </div>
+                <p style="color: #888; margin-bottom: 15px;">Singapore</p>
+                <ul>
+                    <li>Conducted hardware experiments and simulations in electric drives and power electronics, enhancing students' practical understanding.</li>
+                    <li>Delivered lectures on "Motion control, characteristics and sizing of power semiconductor controlled electric drives" (EE4502) and "Power electronic converter circuits" (EE4503).</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Researcher</div>
+                        <div class="card-subtitle">TUBITAK</div>
+                        <p style="color: #888; margin-top: 8px;">Prof. Dr. Taylan Yetkin</p>
+                    </div>
+                    <div class="card-date">Mar 2020 - Mar 2021</div>
+                </div>
+                <p style="color: #888; margin-bottom: 15px;">Türkiye</p>
+                <p class="card-description">TUBITAK-1001 funded project (119F133): "Determination of Interaction Depth of 511 keV Energized Gammas in Inorganic Crystals Using Fiber and Silicon Photomultipliers"</p>
+                <ul>
+                    <li>Designed customized PCB circuits and optimized software solutions using Digilent Zedboard Zynq-7000.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Research Assistant</div>
+                        <div class="card-subtitle">Cognitive Systems Lab, Istanbul Technical University</div>
+                        <p style="color: #888; margin-top: 8px;">Prof. Tahir Ç. Akıncı</p>
+                    </div>
+                    <div class="card-date">Feb 2018 - Feb 2020</div>
+                </div>
+                <p style="color: #888; margin-bottom: 15px;">Türkiye</p>
+                <ul>
+                    <li>FPGA-based reprogrammable board circuits design and applications, focusing on EEG, information theory, and signal processing.</li>
+                    <li>Supported by Coordinatorship of Scientific Research Projects under Grant No. MYL-2019-41852.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Engineering Intern</div>
+                        <div class="card-subtitle">ALTU Technology LTD. (XAD Communications)</div>
+                        <p style="color: #888; margin-top: 8px;">Dr. Yusuf Baltacı</p>
+                    </div>
+                    <div class="card-date">Jul 2017 - Oct 2017</div>
+                </div>
+                <p style="color: #888; margin-bottom: 15px;">Bristol, United Kingdom</p>
+                <ul>
+                    <li>Worked as an engineer in the R&D Department to research and design PCB cards using the EASY PC Programme.</li>
+                    <li>Designed electronic circuits using FPGA SPARTAN3E and coded using VHDL Programming Language in Xilinx ISE Design Suite.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Engineering Intern</div>
+                        <div class="card-subtitle">ALSIM ALARKO Holding & Istanbul Metropolitan Municipality</div>
+                    </div>
+                    <div class="card-date">Jul 2016 - Sep 2016</div>
+                </div>
+                <p style="color: #888; margin-bottom: 15px;">Türkiye</p>
+                <ul>
+                    <li>Electrification operations in Yenikapı-Taksim Subway Line - Vezneciler Station Southern Concourse Construction.</li>
+                    <li>Making revision procedures in LV and Mid-V electrical projects using AutoCAD and electrical panel repair.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Publications Page -->
+    <div id="publications-page" class="page content-page">
+        <div class="container">
+            <h2>Publications</h2>
+            <p class="section-intro">My research has been published in top-tier AI and computer vision conferences including AAAI, EMNLP, and leading journals.</p>
+            
+            <div class="pub-item">
+                <div class="pub-title">Retrieval-augmented mistake detection in procedural planning via multimodal action-object reasoning</div>
+                <div class="pub-venue">Ilaslan, M. F., et al. · Under Review, 2025</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">VG-MPP: Visually Grounded Multimodal Procedural Planning from Unstructured Instructional Videos</div>
+                <div class="pub-venue">Ilaslan, M. F., et al. · Association for the Advancement of Artificial Intelligence, Human-Computer Interaction Workshop (HCM-AAAI26), Singapore · AAAI Press, 2025</div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">VG-TVP: Multimodal Procedural Planning via Visually Grounded Text-Video Prompting</div>
+                <div class="pub-venue">Ilaslan, M. F., et al. · Association for the Advancement of Artificial Intelligence (AAAI25), pp
